@@ -1,0 +1,31 @@
+services:
+    second-db:
+        image: postgres
+        environment:
+          - POSTGRES_USER=sopheak
+          - POSTGRES_PASSWORD=1234
+          - POSTGRES_DB=postgres
+        ports:
+          - "5434:5432"
+     
+    keycloak:
+        build: .
+        container_name: keycloak-container
+        hostname: keycloak.lundy.lol
+        # network_mode: "host"
+        environment:
+          KC_BOOTSTRAP_ADMIN_USERNAME: admin
+          KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+          KEYCLOAK_USER: admin
+          KEYCLOAK_PASSWORD: admin
+          DB_VENDOR: POSTGRES
+          DB_ADDR: second-db
+          DB_DATABASE: postgres
+          DB_USER: sopheak
+          PROXY_ADDRESS_FORWARDING: "true"  # Required when running behind a proxy
+        ports:
+          - "8080:8080"
+          - "8443:8443"
+        restart: unless-stopped
+        command: start --hostname=keycloak.lundy.lol --proxy-headers forwarded --http-relative-path / 
+
