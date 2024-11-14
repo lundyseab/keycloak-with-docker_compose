@@ -3,7 +3,7 @@
 You must have installed:
 - Docker with docker compose plugin
 - and Nginx
-## Noted 
+## Note
 If you want to used it with <code>your own domain name</code>, you must change <code>hostname</code> of keycloak in <code>compose.yml</code> to your own domain first before runnning.
 ## Get Started
 You can used to this Keycloak with docker compose by make sure that <code>Dockerfile</code> and <code>compose.yml</code> is stay on the same folder before run command:
