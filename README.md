@@ -1,4 +1,4 @@
-### Keycloak with docker compose and Nginx as Reverse proxy
+# Keycloak with docker compose and Nginx as Reverse proxy
 ## Requirement 
 You must have installed:
 - Docker with docker compose plugin
@@ -13,11 +13,11 @@ docker compose up --build -d
 ## Finally 
 You must configure a nginx reverse proxy using file in folder <code>nginx-revers-proxy</code> by copy it to folder <code>/etc/nginx/conf.d/</code> 
 And you must configure to HTTPS with your custom domain. Example by using certbot:
-#Install
+### Install
 ```bash
 sudo apt install certbot python3-certbot-nginx
 ```
-# Request HTTPS for your domain name
+### Request HTTPS for your domain name
 ```bash
 sudo certbot --nginx -d <your-domain-name>
 ```
